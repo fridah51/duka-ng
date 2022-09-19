@@ -1,13 +1,13 @@
 <p>
-  <mat-toolbar color="accent">
+  <mat-toolbar color="red">
     <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
       <mat-icon>menu</mat-icon>
     </button>
     <span><a mat-button routerLink="/">Home</a></span>
     <span class="example-spacer"></span>
-    <a mat-raised-button class="button" color="basic" routerLink="/dashboard">Dashboard</a>
-    <a mat-raised-button class="button" color="primary" routerLink="/products">Products</a>
-    <a mat-raised-button class="button" color="warn" routerLink="/sales">Sales</a>
+    <a mat-stroked-button class="button" color="basic" routerLink="/dashboard" routerLinkActive="active" ariaCurrentWhenActive="page">Dashboard</a>
+    <a mat-stroked-button class="button" color="basic" routerLink="/product" routerLinkActive="active" ariaCurrentWhenActive="page">Products</a>
+    <a mat-stroked-button class="button" color="basic" routerLink="/sale"  routerLinkActive="active" ariaCurrentWhenActive="page">Sales</a>
     <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
       <mat-icon>favorite</mat-icon>
     </button>
@@ -16,3 +16,5 @@
     </button>
   </mat-toolbar>
 </p>
+
+<router-outlet></router-outlet>

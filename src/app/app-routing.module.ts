@@ -7,13 +7,14 @@ import { ViewSalesComponent } from './view-sales/view-sales.component';
 import { VsgGuard } from './view-sales/vsg.guard';
 import { WelcomeComponent } from './welcome/welcome.component';
 
+
 const routes: Routes = [
-  { path: 'dashboard', component:DashboardComponent },
-  { path: 'products', component:ProductsComponent },
-  { path: 'sales', component:SalesComponent },
-  { path: 'sales/:id',canActivate:[VsgGuard] ,component:ViewSalesComponent },
-  { path: '', component:WelcomeComponent },
-  { path: '**', redirectTo:'/' }
+  { path: 'dashboard', component:DashboardComponent,pathMatch: 'full' },
+  { path: 'product', component:ProductsComponent ,pathMatch: 'full'},
+  { path: 'sale', component:SalesComponent ,pathMatch: 'full'},
+  { path: 'sale/:id',canActivate:[VsgGuard] ,component:ViewSalesComponent ,pathMatch: 'full'},
+  { path: '', component:WelcomeComponent ,pathMatch: 'full'},
+  { path: '**', redirectTo:'/', pathMatch: 'full' }
 ];
 
 
