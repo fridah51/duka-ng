@@ -2,17 +2,17 @@ import { AfterViewInit, Component, Input, ViewChild, OnInit } from '@angular/cor
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { TableColumn } from './table-column';
+import { Column } from './column';
 import { Observable, of as observableOf, merge } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 
 @Component({
   selector: 'app-table',
-  templateUrl: './table.component.html',
-  styleUrls: ['./table.component.css']
+  templateUrl: './reusable-table.component.html',
+  styleUrls: ['./reusable-table.component.css']
 })
-export class TableComponent<T> implements AfterViewInit, OnInit {
+export class ReusableTableComponent<T> implements AfterViewInit, OnInit {
 
  
   connect(): Observable<any[]> {
@@ -36,7 +36,7 @@ export class TableComponent<T> implements AfterViewInit, OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  @Input() tableColumns: Array<TableColumn> = [];
+  @Input() tableColumns: Array<Column> = [];
   @Input() tableData: Array<T> = [];
 
   displayedColumns: Array<string> = [];

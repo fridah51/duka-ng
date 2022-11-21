@@ -11,12 +11,21 @@ import { SalesIntf } from '../sales/sales-intf';
 export class ServicesService {
 
   constructor(private http: HttpClient) { }
+  
 
-  url:string = "http://127.0.0.1:8001"
+  url:string = "http://127.0.0.1:8000"
+
+
+  public QueryOptions = `?$format=application/json;odata.metadata=none`
 
   getProducts(){
-    return this.http.get(this.url + "/products");
+    return this.http.get(  this.url + "/products"  );
  };
+
+ getOneP(id:number){
+  return this.http.get(this.url + `/products/${id} `)
+};
+
 
  getSales(){
   return this.http.get(this.url + "/sales");
@@ -26,11 +35,11 @@ export class ServicesService {
     return this.http.get(this.url + `/sales/${id} `)
   };
 
-  addProd(prod:ProdIntf): Observable<any>{
+  addProd(prod:any): Observable<any>{
     return this.http.post(this.url + "/products", prod)
   }
 
-  postSale(sale:SalesIntf): Observable<any>{
+  postSale(sale:any): Observable<any>{
     return this.http.post(this.url + "/sales", sale)
   };
 
@@ -39,7 +48,7 @@ export class ServicesService {
   };
 
   deleteProd(id: number): Observable<unknown> {
-    const url = `${this.url}/products/${id}`; 
+    const url = `${this.url}/products/${id}`;
     return this.http.delete(url)
   };
 

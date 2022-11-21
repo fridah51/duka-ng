@@ -1,19 +1,93 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
 </head>
 <body>
-<h1> PRODUCTS</h1>
 
-<app-table
-  [tableColumns]= "tableColumnp"
-  [tableData]= "tableData">
-</app-table>
 
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-2 py-2 mx-auto">
+      <button type="button" class="btn btn-outline-dark mx-auto" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+      Add Product</button>
+    </div>
+  </div>
+
+  <div class="card mask-custom">
+    <div class="card-body">
+        <table class="table text-white" id="table2">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Name</th>
+              <th scope="col">Buying Price</th>
+              <th scope="col">Selling Price</th>
+              <th scope="col">Sales</th>
+              <th scope="col">Buy</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let row of myProducts">
+              <td>{{row.id}}</td>
+              <td>{{row.name}}</td>
+              <td>{{row.bp}}</td>
+              <td>{{row.sp}}</td>
+              <td><a  class="btn btn-outline-light" routerLink="/sale/{{row.id}}" routerLinkActive="active" ariaCurrentWhenActive="page">View</a></td>
+              <td><a  class="btn btn-outline-light" routerLink="/product/{{row.id}}" routerLinkActive="active" ariaCurrentWhenActive="page">Buy</a> </td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
+</div>
+
+
+<!-- Add product -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Add Product</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       
+        <form [formGroup]="ngForm" (ngSubmit)="addProdt()">
+          <div class="mb-3">
+            <label  class="form-label">Name :</label>
+            <input type="text" formControlName="name" class="form-control" ngModel>
+          </div>
+    
+          <div class="mb-3">
+            <label class="form-label">Buying Price :</label>
+            <input type="number" formControlName="bp" class="form-control" ngModel>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label" >Selling Price :</label>
+            <input type="number" formControlName="sp" class="form-control" ngModel>
+          </div>
+
+          <button type="submit" value="submit" class="btn btn-outline-info">Submit</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<script>
+  $(document).ready( function () {
+  $('#table2').DataTable();
+  } );
+</script>
+
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+
+<router-outlet></router-outlet>
+ 
 </body>
-</html>
-
+  

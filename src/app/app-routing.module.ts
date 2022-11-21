@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { MsModalComponent } from './ms-modal/ms-modal.component';
 import { ProductsComponent } from './products/products.component';
 import { SalesComponent } from './sales/sales.component';
 import { ViewSalesComponent } from './view-sales/view-sales.component';
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'product', component:ProductsComponent ,pathMatch: 'full'},
   { path: 'sale', component:SalesComponent ,pathMatch: 'full'},
   { path: 'sale/:id',canActivate:[VsgGuard] ,component:ViewSalesComponent ,pathMatch: 'full'},
+  { path: 'product/:id', component:MsModalComponent ,pathMatch: 'full'},
   { path: '', component:WelcomeComponent ,pathMatch: 'full'},
   { path: '**', redirectTo:'/', pathMatch: 'full' }
 ];

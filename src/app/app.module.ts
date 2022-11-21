@@ -22,10 +22,18 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { ViewSalesComponent } from './view-sales/view-sales.component';
-import { TableComponent } from './table/table.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { NgChartsModule } from 'ng2-charts';
+import { BarChartComponent } from './bar-chart/bar-chart.component';
+import { LineChartComponent } from './line-chart/line-chart.component';
+import { PieChartComponent } from './pie-chart/pie-chart.component';
+import { ReusableTableComponent } from './reusable-table/reusable-table.component';
+import { RtableComponent } from './rtable/rtable.component';
+import { MsModalComponent } from './ms-modal/ms-modal.component';
+import { LoginsComponent } from './logins/logins.component';
+import { MpModalComponent } from './mp-modal/mp-modal.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +44,14 @@ import { MatSortModule } from '@angular/material/sort';
     WelcomeComponent,
     DashboardComponent,
     ViewSalesComponent,
-    TableComponent
+    BarChartComponent,
+    LineChartComponent,
+    PieChartComponent,
+    ReusableTableComponent,
+    RtableComponent,
+    MsModalComponent,
+    LoginsComponent,
+    MpModalComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +71,8 @@ import { MatSortModule } from '@angular/material/sort';
     MatMenuModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

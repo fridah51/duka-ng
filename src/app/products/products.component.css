@@ -1,3 +1,41 @@
-body{
-  margin: 25px;
+
+table td,
+table th {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.mask-custom {
+  background-image: linear-gradient( 35deg, black, rgb(1, 4, 44) );
+  /* background: rgb(0, 0, 0) ; */
+  backdrop-filter: blur(25px);
+  border: 2px solid rgba(255, 255, 255, 0.05);
+  background-clip: padding-box;
+  box-shadow: 10px 10px 10px rgba(46, 54, 68, 0.03);
+}
+
+
+.modal, .modal-content{
+  background-color: rgba(218, 215, 255, 0.2);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 1px 1px 0 rgb(3, 11, 83);
+}
+
+
+input {
+  color:white;
+  background: transparent ;
+	border-radius: 0;
+	border-color: rgb(0, 0, 0);
+  border-width: 0 0 0.5px 0;
+  border-style: none none solid none;
+  box-shadow: none;
+}
+input:focus ,input:hover, input:active {
+  color:white;
+  background: transparent ;
+	box-shadow: none;
+	border-color: #04012e;
+  border-width: 0 0 1.5px 0;
 }

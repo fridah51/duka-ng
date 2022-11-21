@@ -11,7 +11,7 @@ export class ViewSalesComponent implements OnInit {
 
   constructor(private injServ : ServicesService,  private route: ActivatedRoute, private router:Router) { }
 
-  mySale:any ={}
+  mySale:any =[]
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
@@ -25,7 +25,7 @@ export class ViewSalesComponent implements OnInit {
 
 // button action implementing route
   onBack():void{
-    this.router.navigate(['/products']);
+    this.router.navigate(['/product']);
   };
 
 

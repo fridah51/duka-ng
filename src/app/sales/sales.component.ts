@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ServicesService } from '../Services/services.service';
-import { TableColumn } from '../table/table-column';
 import { SalesIntf } from './sales-intf';
+
+
 
 @Component({
   selector: 'app-sales',
@@ -10,38 +11,36 @@ import { SalesIntf } from './sales-intf';
 })
 export class SalesComponent implements OnInit {
 
-  constructor(private injServ : ServicesService) { 
+  constructor(private injServ : ServicesService ) {
     this.showSales()
   };
 
+
+
   mySales:SalesIntf[] =[]
-  tableSales :SalesIntf[] = []
 
   showSales(){
     this.injServ.getSales().subscribe((data : any ) =>
     {
-      this.mySales = data;
-      this.tableSales = data
-      console.log("sales :", this.tableSales)
+      this.mySales = data
+      console.log("sales :", this.mySales)
     })
   };
 
-  obj:any ={}
-  makeSale(){
-    this.injServ.postSale(this.obj).subscribe((item) =>
+
+  ngOnInit(): void {  
+  }
+
+
+  openModal(saleId:any) {
+    this.injServ.getOneS(saleId).subscribe((item:any) =>
     {
-      this.mySales.push(item)
+      console.log(item.id);
     })
-  };
-
-  tableColumns: Array<TableColumn> = [
-    { columnDef: 'id', header: 'Id' ,cell: (element: Record<string, any>) => `${element['id']}` },
-    { columnDef: 'product_id', header: 'Product_Id' ,cell: (element: Record<string, any>) => `${element['product_id']}` },
-    { columnDef: 'quantity', header: 'Quantity', cell: (element: Record<string, any>) => `${element['quantity']}` },
-    { columnDef: 'created', header: 'Date', cell: (element: Record<string, any>) => `${element['created']}` }
-  ];
+   }
 
 
-  ngOnInit(): void {}
+
 
 }
+

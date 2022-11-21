@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ServicesService } from '../Services/services.service';
-import { TableColumn } from '../table/table-column';
 import { ProdIntf } from './prod-intf';
+import { FormGroup, FormControl, FormBuilder } from "@angular/forms";
+import { ActivatedRoute,Router } from '@angular/router';
 
 
 
@@ -12,23 +13,16 @@ import { ProdIntf } from './prod-intf';
 })
 export class ProductsComponent implements OnInit {
 
-  constructor(private injServ : ServicesService ) {
-    this.showProducts()
-
-   };
+  constructor(private injServ : ServicesService , private formBuilder: FormBuilder , private router:Router) { };
 
   myProducts: ProdIntf[]= []
-  tableData : ProdIntf[] = [
-    {name: 'gin', bp: 4000, sp: 5000, id: 1},
-    {name: 'Guiness', bp: 150, sp: 200, id: 2}
-  ];
+  tableData! : ProdIntf[]
 
   showProducts(){
     this.injServ.getProducts().subscribe((data:any) =>
     {
       this.myProducts = data;
-      this.tableData = this.myProducts
-      console.log("products :", this.tableData)
+      console.log("products :", this.myProducts)
     })
   };
 
@@ -42,16 +36,27 @@ export class ProductsComponent implements OnInit {
   };
 
 
-  tableColumnp: Array<TableColumn> = [
-    { columnDef: 'id', header: 'Id' ,cell: (element: Record<string, any>) => `${element['id']}` },
-    { columnDef: 'name', header: 'Name' ,cell: (element: Record<string, any>) => `${element['name']}` },
-    { columnDef: 'bp', header: 'BP', cell: (element: Record<string, any>) => `${element['bp']}` },
-    { columnDef: 'sp', header: 'SP', cell: (element: Record<string, any>) => `${element['sp']}` }
-  ];
+  // add prod form
+  ngForm = this.formBuilder.group(
+    {
+      name :new FormControl(""),
+      bp: new FormControl(""),
+      sp: new FormControl("")
+    });
+
+  addProdt(){
+    this.injServ.addProd(this.ngForm.value).subscribe((item) =>
+    {
+      this.myProducts.push(item)
+      this.router.navigate(['/product']);
+    })
+  };
 
 
-  ngOnInit(): void {}
 
+  ngOnInit(): void {
+    this.showProducts()
+  }
 
 
 }

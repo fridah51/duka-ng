@@ -1,20 +1,15 @@
-<p>
-  <mat-toolbar color="red">
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <span><a mat-button routerLink="/">Home</a></span>
-    <span class="example-spacer"></span>
-    <a mat-stroked-button class="button" color="basic" routerLink="/dashboard" routerLinkActive="active" ariaCurrentWhenActive="page">Dashboard</a>
-    <a mat-stroked-button class="button" color="basic" routerLink="/product" routerLinkActive="active" ariaCurrentWhenActive="page">Products</a>
-    <a mat-stroked-button class="button" color="basic" routerLink="/sale"  routerLinkActive="active" ariaCurrentWhenActive="page">Sales</a>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-      <mat-icon>favorite</mat-icon>
-    </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-      <mat-icon>share</mat-icon>
-    </button>
-  </mat-toolbar>
-</p>
+<nav class="navbar navbar-dark" >
+  <!-- Navbar content -->
+  <button  class="menu" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span><a class="navbar-brand" routerLink="/">Home</a></span>
+  <span class="example-spacer"></span>
+  <a  class="btn btn-outline-light" routerLink="/dashboard" routerLinkActive="active" ariaCurrentWhenActive="page">Dashboard</a>
+  <a  class="btn btn-outline-light" routerLink="/product" routerLinkActive="active" ariaCurrentWhenActive="page">Products</a>
+  <a  class="btn btn-outline-light mr-2" routerLink="/sale"  routerLinkActive="active" ariaCurrentWhenActive="page">Sales</a>
+
+</nav>
+
 
 <router-outlet></router-outlet>
