@@ -34,6 +34,7 @@ import { RtableComponent } from './rtable/rtable.component';
 import { MsModalComponent } from './ms-modal/ms-modal.component';
 import { LoginsComponent } from './logins/logins.component';
 import { MpModalComponent } from './mp-modal/mp-modal.component';
+import {DataTablesModule} from 'angular-datatables';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { MpModalComponent } from './mp-modal/mp-modal.component';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    NgChartsModule
+    NgChartsModule,
+    DataTablesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

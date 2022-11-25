@@ -35,20 +35,26 @@
       <form [formGroup]="myForm" #myform="ngForm" (ngSubmit)="makeSale(myform)">
           <div class="form-group">
               <label class="form-label" >Product : {{name}}</label>
-              <input type="number" class="form-control" formControlName="product_id" [formControl]="product_id" ngForm readonly >
+              <input type="number" class="form-control" formControlName="product_id"  ngForm readonly>
           </div>
           <br>
           <div class="form-group">
             <label class="form-label" >Quantity :</label>
-            <input type="number" class="form-control"  formControlName="quantity" [formControl]="quantity" ngForm>
+            <input type="number" class="form-control" formControlName="quantity" [(ngModel)]="quantity" ngForm>
           </div>
           <br>
           <div>
-              <label class="form-label"><h5> Amount :{{ quantity.value * price}} </h5></label>
+              <label class="form-label"><h5> Amount :{{ quantity * price}} </h5></label>
           </div>
-          <div class="mt-5">
-              <button type="submit" value="submit" class="btn btn-outline-light">Submit</button>
-          </div>
+          <br>
+          <div class="row ">
+            <div class="col-auto ">
+                <button type="submit" value="submit" class="btn btn-outline-light">Submit</button>
+              </div>
+              <div class="col-auto">
+                <button (click)="onBack()" class="btn btn-outline-secondary">Cancel</button>
+            </div>
+        </div>
       </form>
     </div>
   </div>

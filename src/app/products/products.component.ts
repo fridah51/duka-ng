@@ -13,7 +13,17 @@ import { ActivatedRoute,Router } from '@angular/router';
 })
 export class ProductsComponent implements OnInit {
 
-  constructor(private injServ : ServicesService , private formBuilder: FormBuilder , private router:Router) { };
+  constructor(private injServ : ServicesService , private formBuilder: FormBuilder , private router:Router) {
+    setTimeout(()=>{
+      $('#pt').DataTable( {
+        pagingType: 'full_numbers',
+        pageLength: 10,
+        processing: true,
+        lengthMenu : [5, 10, 25]
+      } );
+    }, 1);
+
+  };
 
   myProducts: ProdIntf[]= []
   tableData! : ProdIntf[]

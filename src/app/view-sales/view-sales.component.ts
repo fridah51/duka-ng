@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SalesIntf } from '../sales/sales-intf';
 import { ServicesService } from '../Services/services.service';
 
 @Component({
@@ -15,13 +16,14 @@ export class ViewSalesComponent implements OnInit {
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    
-    this.injServ.getOneS(id).subscribe((item:any) => 
+
+    this.injServ.getOneS(id).subscribe((item:any) =>
     {
       this.mySale = item;
       console.log(item);
     })
   };
+
 
 // button action implementing route
   onBack():void{

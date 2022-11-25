@@ -2,7 +2,7 @@
 <div class="container-fluid">
   <div class="card mask-custom">
     <div class="card-body">
-        <table class="table  text-white ">
+        <table class="table  text-white " id="st">
           <thead>
             <tr>
               <th >ID</th>
@@ -32,7 +32,7 @@
 <script type="text/ng-template" id="templateId" >
   <div class="modal-header">
    <h2>Contact Detail</h2>
-</div>  
+</div>
 <div class="modal-body">
   <form [formGroup]="myForm" (ngSubmit)="makePay()">
     <div class="form-group">

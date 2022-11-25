@@ -1,8 +1,4 @@
-<head>
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
-</head>
 <body>
-
 
 <div class="container-fluid">
   <div class="row">
@@ -14,7 +10,7 @@
 
   <div class="card mask-custom">
     <div class="card-body">
-        <table class="table text-white" id="table2">
+        <table class="table text-white" id="pt">
           <thead>
             <tr>
               <th scope="col">ID</th>
@@ -50,13 +46,13 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-       
+
         <form [formGroup]="ngForm" (ngSubmit)="addProdt()">
           <div class="mb-3">
             <label  class="form-label">Name :</label>
             <input type="text" formControlName="name" class="form-control" ngModel>
           </div>
-    
+
           <div class="mb-3">
             <label class="form-label">Buying Price :</label>
             <input type="number" formControlName="bp" class="form-control" ngModel>
@@ -79,15 +75,6 @@
 
 
 
-<script>
-  $(document).ready( function () {
-  $('#table2').DataTable();
-  } );
-</script>
-
-<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-
 <router-outlet></router-outlet>
- 
+
 </body>
-  

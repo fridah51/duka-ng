@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
 import { ServicesService } from '../Services/services.service';
 import { SalesIntf } from './sales-intf';
 
@@ -12,7 +13,18 @@ import { SalesIntf } from './sales-intf';
 export class SalesComponent implements OnInit {
 
   constructor(private injServ : ServicesService ) {
-    this.showSales()
+    this.showSales();
+
+    setTimeout(()=>{
+      $('#st').DataTable( {
+        pagingType: 'full_numbers',
+        pageLength: 10,
+        processing: true,
+        lengthMenu : [5, 10, 25]
+      } );
+    }, 1);
+
+
   };
 
 
@@ -28,8 +40,9 @@ export class SalesComponent implements OnInit {
   };
 
 
-  ngOnInit(): void {  
+  ngOnInit(): void {
   }
+
 
 
   openModal(saleId:any) {
@@ -38,8 +51,6 @@ export class SalesComponent implements OnInit {
       console.log(item.id);
     })
    }
-
-
 
 
 }

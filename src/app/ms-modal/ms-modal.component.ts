@@ -17,29 +17,28 @@ export class MsModalComponent implements OnInit{
    }
 
   id:number = Number(this.route.snapshot.paramMap.get('id'));
-  quantity:any = new FormControl(1)
+  quantity = 1
   price! :number
-  product_id = new FormControl(this.id)
   name! : string;
 
 
 
   mySales:SalesIntf[] =[]
   // make sale form
-  myForm = new FormGroup({
-    product_id : new FormControl('') ,
-    quantity : new FormControl('') 
+  myForm = this.formBuilder.group({
+    product_id : [this.id ],
+    quantity : ['']
   });
 
   makeSale(myform:any){
     console.log(myform.value)
-    
-    // this.injServ.postSale(this.myForm.value).subscribe((item) =>
-    // {
-    //   console.log(this.myForm.value)
-    //   console.log("sale item",item)
-    //   this.router.navigate(['/sale']);
-    // })
+
+    this.injServ.postSale(this.myForm.value).subscribe((item) =>
+    {
+      console.log(this.myForm.value)
+      console.log("sale item",item)
+      this.router.navigate(['/product']);
+    })
   };
 
 
@@ -52,6 +51,12 @@ export class MsModalComponent implements OnInit{
       this.name = item.name
     })
   };
+
+
+  onBack():void{
+    this.router.navigate(['/product']);
+  };
+
 
 
 }

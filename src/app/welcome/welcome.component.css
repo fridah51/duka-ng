@@ -49,11 +49,14 @@ body {
 
 .overlay__inner {
   max-width: 36rem;
+  position: relative;
+  text-align: center;
 }
 
 .overlay__title {
   font-weight: 700;
   margin-bottom: 7rem;
+  /* font-size: 4rem; */
 }
 
 .text-gradient {

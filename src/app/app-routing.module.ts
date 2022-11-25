@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'dashboard', component:DashboardComponent,pathMatch: 'full' },
   { path: 'product', component:ProductsComponent ,pathMatch: 'full'},
   { path: 'sale', component:SalesComponent ,pathMatch: 'full'},
-  { path: 'sale/:id',canActivate:[VsgGuard] ,component:ViewSalesComponent ,pathMatch: 'full'},
+  { path: 'sale/:id' ,component:ViewSalesComponent ,pathMatch: 'full'},
   { path: 'product/:id', component:MsModalComponent ,pathMatch: 'full'},
   { path: '', component:WelcomeComponent ,pathMatch: 'full'},
   { path: '**', redirectTo:'/', pathMatch: 'full' }
