@@ -32,9 +32,20 @@ import { PieChartComponent } from './pie-chart/pie-chart.component';
 import { ReusableTableComponent } from './reusable-table/reusable-table.component';
 import { RtableComponent } from './rtable/rtable.component';
 import { MsModalComponent } from './ms-modal/ms-modal.component';
-import { LoginsComponent } from './logins/logins.component';
 import { MpModalComponent } from './mp-modal/mp-modal.component';
 import {DataTablesModule} from 'angular-datatables';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { environment } from '../environments/environment';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { VerifyEmailComponent } from './verify-email/verify-email.component';
+
+
 
 @NgModule({
   declarations: [
@@ -51,8 +62,12 @@ import {DataTablesModule} from 'angular-datatables';
     ReusableTableComponent,
     RtableComponent,
     MsModalComponent,
-    LoginsComponent,
-    MpModalComponent
+    MpModalComponent,
+    SignInComponent,
+    UserProfileComponent,
+    ForgotPasswordComponent,
+    VerifyEmailComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -74,7 +89,12 @@ import {DataTablesModule} from 'angular-datatables';
     MatPaginatorModule,
     MatSortModule,
     NgChartsModule,
-    DataTablesModule
+    DataTablesModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireDatabaseModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

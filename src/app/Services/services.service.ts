@@ -35,6 +35,10 @@ export class ServicesService {
     return this.http.get(this.url + `/sales/${id} `)
   };
 
+  getOneSp(id:number){
+    return this.http.get(this.url + `/sales/s/${id} `)
+  };
+
   addProd(prod:any): Observable<any>{
     return this.http.post(this.url + "/products", prod)
   }
@@ -50,6 +54,11 @@ export class ServicesService {
   deleteProd(id: number): Observable<unknown> {
     const url = `${this.url}/products/${id}`;
     return this.http.delete(url)
+  };
+
+
+  postStk(stk:any): Observable<any>{
+    return this.http.post(this.url + "/stkpush", stk)
   };
 
 

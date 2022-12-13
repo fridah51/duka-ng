@@ -17,7 +17,7 @@ export class ViewSalesComponent implements OnInit {
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
 
-    this.injServ.getOneS(id).subscribe((item:any) =>
+    this.injServ.getOneSp(id).subscribe((item:any) =>
     {
       this.mySale = item;
       console.log(item);

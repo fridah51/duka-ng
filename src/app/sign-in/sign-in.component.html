@@ -1,0 +1,25 @@
+<body>
+<div class="container text-white">
+    <div class="row">
+      <div class="card col-4 p-5 mt-5 mx-auto">
+        <h3>Sign In</h3>
+        <!-- Calling GoogleAuth Api from AuthService -->
+        <div class="formGroup mt-3">
+          <button type="button" class="btn btn-light" (click)="authService.GoogleAuth()">
+            <i class="bi bi-google"></i>
+            Log in with Google
+          </button>
+        </div>
+        <div class="forgotPassword mt-3">
+          <span routerLink="/forgot-password">Forgot Password?</span>
+        </div>
+        <div class="redirectToLogin mt-3">
+            <span>Don't have an account?<span class="redirect" routerLink="/register-user"> Sign Up</span></span>
+        </div>
+      </div>
+    </div>
+</div>
+  
+<router-outlet></router-outlet>
+
+</body>

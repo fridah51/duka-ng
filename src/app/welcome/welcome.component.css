@@ -1,8 +1,6 @@
 @import  '//classpath:compass/css3';
 
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 /*
@@ -17,8 +15,11 @@ body {
   display: grid;
   place-items: center;
   padding: 2rem;
-  background-image: linear-gradient( rgb(255, 0, 128) ,  black );
-  backdrop-filter: blur(25px);
+  background: url(https://images.unsplash.com/photo-1613406273263-71a0da2f44dc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80);
+  /* background-image: linear-gradient( rgb(255, 0, 128) ,  black ); */
+  background-repeat: no-repeat;
+  background-size:cover ;
+  backdrop-filter: blur(5px);
 }
 
 
@@ -40,41 +41,39 @@ body {
   padding: 8rem 6rem;
   display: flex;
   align-items: center;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(25px);
-  box-shadow: 0 0.75rem 2rem 0 rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(5px);
+  box-shadow: rgba(255, 3, 171, 0.12) 0px 2px 4px 0px, rgba(255, 2, 171, 0.32) 0px 2px 16px 0px;
   border-radius: 2rem;
   border: 1px solid rgba(255, 255, 255, 0.125);
 }
 
 .overlay__inner {
-  max-width: 36rem;
   position: relative;
   text-align: center;
+  margin: auto;
 }
 
 .overlay__title {
-  font-weight: 700;
-  margin-bottom: 7rem;
-  /* font-size: 4rem; */
+  font-weight: 650;
+  margin-bottom: 4rem;
+  font-size: 2rem;
 }
 
+
 .text-gradient {
-  background-image: linear-gradient(45deg, rgb(0, 0, 0),white , rgb(0, 0, 0));
+  /* background-image: linear-gradient(45deg, rgb(0, 0, 0), rgb(250, 6, 169)); */
+  background-color:rgb(255, 6, 129) ;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   -moz-background-clip: text;
   -moz-text-fill-color: transparent;
 }
 
-.overlay__description {
-  margin-bottom: 3rem;
-}
-
-.overlay__btns {
+/* .overlay__btns {
   width: 100%;
   max-width: 30rem;
-}
+} */
 
 .overlay__btn {
   padding: 1em;

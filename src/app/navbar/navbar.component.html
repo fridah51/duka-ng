@@ -1,14 +1,13 @@
 <nav class="navbar navbar-dark" >
   <!-- Navbar content -->
-  <button  class="menu" aria-label="Example icon-button with menu icon">
-    <mat-icon>menu</mat-icon>
-  </button>
+  <button  class="menu" aria-label="Example icon-button with menu icon"><mat-icon>menu</mat-icon></button>
   <span><a class="navbar-brand" routerLink="/">Home</a></span>
   <span class="example-spacer"></span>
   <a  class="btn btn-outline-light" routerLink="/dashboard" routerLinkActive="active" ariaCurrentWhenActive="page">Dashboard</a>
   <a  class="btn btn-outline-light" routerLink="/product" routerLinkActive="active" ariaCurrentWhenActive="page">Products</a>
-  <a  class="btn btn-outline-light mr-2" routerLink="/sale"  routerLinkActive="active" ariaCurrentWhenActive="page">Sales</a>
-
+  <a  class="btn btn-outline-light" routerLink="/sale"  routerLinkActive="active" ariaCurrentWhenActive="page">Sales</a>
+  <a class="btn btn-outline-light mr-3" routerLink="/sign-in" routerLinkActive="active" ariaCurrentWhenActive="page">SignIn</a> 
+  <button type="button" class="btn btn-outline-light mr-3" (click)="logOut()" >Logout</button> 
 </nav>
 
 
