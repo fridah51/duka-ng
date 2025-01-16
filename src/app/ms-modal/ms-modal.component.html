@@ -1,0 +1,43 @@
+<body>
+
+<!-- mfkjsbfhj -->
+<div class="container">
+<div class="row">
+<div class="col-md-6 mx-auto">
+
+  <div class="card mt-5 text-white">
+    <div class="card-body ">
+      <h4 class="text-center  mb-4">Add to Cart</h4>
+
+      <form [formGroup]="myForm" #myform="ngForm" (ngSubmit)="makeSale(myform)">
+          <div class="form-group">
+              <label class="form-label" >Product : {{name}}</label>
+              <input type="number" class="form-control" formControlName="product_id"  ngForm readonly>
+          </div>
+          <br>
+          <div class="form-group">
+            <label class="form-label" >Quantity :</label>
+            <input type="number" class="form-control" formControlName="quantity" [(ngModel)]="quantity" ngForm>
+          </div>
+          <br>
+          <div>
+              <label class="form-label"><h5> Amount :{{ quantity * price}} </h5></label>
+          </div>
+          <br>
+          <div class="row ">
+            <div class="col-auto ">
+                <button type="submit" value="submit" class="btn btn-outline-light">Submit</button>
+              </div>
+              <div class="col-auto">
+                <button (click)="onBack()" class="btn btn-outline-secondary">Cancel</button>
+            </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+</body>
+

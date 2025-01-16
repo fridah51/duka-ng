@@ -1,5 +1,15 @@
 @import "~bootstrap/dist/css/bootstrap.min.css" ;
+@import "~datatables.net-dt/css/jquery.dataTables.min.css";
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0px; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body{ height: 100%; }
+body{
+  margin: 0px; font-family: Roboto, "Helvetica Neue", sans-serif;
+ }
+.bg-cust{
+  background-color: #0c1227;
+}
+
+.text-cust{
+  color:#0c1227;
+}

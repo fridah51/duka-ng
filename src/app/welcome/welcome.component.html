@@ -1,20 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
 <body>
-  
-<div class="container">
-  <h1> Duka Sales Application </h1>
-
+<!-- Canvas -->
+<canvas class="orb-canvas"></canvas>
+ <!-- Overlay -->
+<div class="overlay ">
+  <!-- Overlay inner wrapper -->
+  <div class="overlay__inner ">
+    <h1 class="overlay__title text-gradient">Duka Online Shopping </h1>
+    <!-- Description -->
+    <h4 class="overlay__description"></h4>
+    <div class="overlay__btns">
+      <button class="btn-outline-dark overlay__btn ">
+        <a routerLink="/product" target="_blank" class="text-gradient"><i class="bi bi-cart4"></i> Start Shopping </a>
+      </button>
+    </div>
+  </div>
 </div>
 
 
+<router-outlet></router-outlet>
 
 </body>
-</html>
 

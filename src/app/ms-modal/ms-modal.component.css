@@ -1,0 +1,33 @@
+body{
+  background-image: linear-gradient(45deg, rgb(0, 247, 255), black);
+  backdrop-filter: blur(25px);
+}
+.error{height:30px; color:hsl(359, 59%, 45%);
+}
+
+.card{
+  background: rgba(255, 253, 253, 0.2);
+  backdrop-filter: blur(25px);
+  box-shadow: 0 0.75rem 2rem 0 rgba(0, 0, 0, 0.1);
+  border-radius: 1rem;
+  border: 1px solid rgba(102, 1, 72, 0.125);
+}
+
+input {
+  color:white;
+  background: transparent ;
+	border-radius: 0;
+  border: 0 0 0.5px 0 solid rgb(255, 255, 255);
+  border-style: none none solid none;
+  box-shadow: none;
+}
+
+input:focus ,input:hover, input:active {
+  color:white;
+  background: transparent ;
+  border-style: none none solid none;
+	box-shadow: 0 0 2px 0 whitesmoke;
+	border-color: #ffffff;
+  border-width: 0 0 1.5px 0;
+
+}

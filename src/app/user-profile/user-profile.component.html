@@ -1,0 +1,30 @@
+<!-- Main content -->
+<main role="main" class=" ml-sm-auto  px-4">
+<div class="inner-adjust">
+    <div class="pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">User Profile</h1>
+        <button class="btn btn-info"><a  (click)="authService.SignOut()"> Log out </a></button>
+    </div>
+    <!-- Show user data when logged in -->
+    <div class="container-fluid" *ngIf="authService.userData as user">
+    <div class="card col-md-4">
+        <div class="media">
+        <img
+            class="align-self-start mr-5 img-thumbnail rounded"
+            src="{{
+            user.photoURL ? user.photoURL : '/assets/dummy-user.png'
+            }}"
+            alt="{{ user.displayName }}"
+        />
+        <div class="media-body">
+            <h3>Hello,<strong>{{ user.displayName ? user.displayName : "Super Admin"}}</strong></h3>
+            <p> User ID: <strong>{{ user.uid }}</strong></p>
+            <p>Email: <strong>{{ user.email }}</strong></p>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+</main>
+  
+
