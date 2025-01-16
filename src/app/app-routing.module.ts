@@ -15,7 +15,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 
 const routes: Routes = [
   { path: 'user-profile',component: UserProfileComponent ,canActivate: [AuthGuard] },
-  { path: 'sign-in',component: SignInComponent },
+  { path: 'sign-in',component: SignInComponent, canActivate:[SecureInnerPagesGuard] },
   { path: 'dashboard', component:DashboardComponent,pathMatch: 'full',canActivate: [AuthGuard] },
   { path: 'product', component:ProductsComponent ,pathMatch: 'full', canActivate: [AuthGuard],},
   { path: 'sale', component:SalesComponent ,pathMatch: 'full' ,canActivate: [AuthGuard]  },

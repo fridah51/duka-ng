@@ -22,7 +22,6 @@ export class MsModalComponent implements OnInit{
   name! : string;
 
 
-
   mySales:SalesIntf[] =[]
   // make sale form
   myForm = this.formBuilder.group({

@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import {NgbModal ,ModalDismissReasons, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap' ;
 import { ServicesService } from '../Services/services.service';
 import { SalesIntf } from './sales-intf';
-import { FormBuilder, FormControl } from '@angular/forms';
+import { FormBuilder, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
 
@@ -13,7 +12,7 @@ import { Router } from '@angular/router';
   templateUrl: './sales.component.html',
   styleUrls: ['./sales.component.css']
 })
-export class SalesComponent implements OnInit {
+export class SalesComponent implements OnInit , OnChanges{
 
   constructor(private injServ : ServicesService ,private modalService:NgbModal , private formBuilder: FormBuilder , private router:Router ) {
     this.showSales();
@@ -31,9 +30,13 @@ export class SalesComponent implements OnInit {
 
   amt:any
 
+  saleId:any 
+
   closeResult:string | undefined
 
   mySales:SalesIntf[] =[]
+
+  payments:any = []
 
   showSales(){
     this.injServ.getSales().subscribe((data : any ) =>
@@ -43,40 +46,41 @@ export class SalesComponent implements OnInit {
     })
   };
 
-
-  mySale:any = []
-  // get one sale
- 
-
   // stkpush or makepayment
   ngForm = this.formBuilder.group(
     {
-      amount :new FormControl(""),
-      mobile: new FormControl("")
+      amount :'',
+      mobile:''
     });
+    
 
   stkPush(){
+    console.log(this.ngForm.value)
     this.injServ.postStk(this.ngForm.value).subscribe((item) =>
-    {
+    { 
       console.log(item)
       this.router.navigate(['/sale']);
     })
   }
 
- 
 
-  openModal(saleId:any) {
-    this.modalService.open(saleId , {ariaLabelledBy: 'modal-basic-title'}).result.then((result) =>
-    {
-      this.closeResult = `Closed with : ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissedReason(reason)}`;
-    });
-    this.injServ.getOneS(saleId).subscribe((item:any) =>
-    {
-      console.log(item.id)
-    });
-   }
+  openModal(saleId:any,modal:any) {
+    this.modalService.open(modal , {ariaLabelledBy: 'modal-basic-title'}).result.then((result) =>
+      {
+        this.closeResult = `Closed with : ${result}`;
+      }, (reason) => {
+        this.closeResult = `Dismissed ${this.getDismissedReason(reason)}`;
+      });
+      this.injServ.getOneS(saleId).subscribe((item:any) =>
+      {
+        console.log("saleId",saleId)
+        var qty = item[0].quantity
+        var sp = item[0].prod.sp
+        this.amt = sp * qty
+        console.log(this.amt)
+      });
+  }
+
 
   private getDismissedReason(reason:any): string {
     if (reason === ModalDismissReasons.ESC){
@@ -89,11 +93,14 @@ export class SalesComponent implements OnInit {
   }
 
 
- 
 
   ngOnInit(): void {
   }
 
+
+  ngOnChanges(changes: SimpleChanges): void {
+    
+  }
 
 }
 

@@ -47,7 +47,7 @@ export class ServicesService {
     return this.http.post(this.url + "/sales", sale)
   };
 
-  putProd(prod:PutProdInf): Observable<any>{
+  putProd(prod:any): Observable<any>{
     return this.http.post(this.url + "/products", prod)
   };
 
